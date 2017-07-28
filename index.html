@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C XHTML 1.0 Transitional//EN" "DTD/xhtml1- transitional.dtd"> 
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Ingreso de usuarios</title>		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="https://use.fontawesome.com/62a057729f.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="funciones.js"></script>
+	</head>
+	<body>
+		<div id="custom" class="alert alert-success alert-dismissable">
+		    <i class="fa fa-thumbs-up" aria-hidden="true"></i> Se ha agregado un nuevo usuario con éxito.
+		</div>
+		<section class="container">
+			<h2 class="text-center">Ingrese un nuevo usuario</h2>
+			<div class="row">
+
+				<div class="col-3 input-group">
+					<span class="input-group-addon" id="basic-cedula">
+						<i class="fa fa-id-card" aria-hidden="true"></i>
+					</span>
+ 					<input type="text" class="form-control" name="cedula" placeholder="Cédula" aria-describedby="basic-cedula">
+
+				</div>
+
+				<div class="col-4 input-group" >
+					<span class="input-group-addon" id="basic-nombre">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</span>
+ 					<input type="text" class="form-control" name="nombre" placeholder="Nombre" aria-describedby="basic-nombre">
+				</div>
+					
+				<div class="col-4 input-group">
+					<span class="input-group-addon" id="basic-apellido">
+						<i class="fa fa-users" aria-hidden="true"></i>
+					</span>
+ 					<input type="text" class="form-control" name="apellido"  placeholder="Apellidos" aria-describedby="basic-apellido">
+
+
+				</div>
+				<div class="col-1 input-group">
+					<button type="button" class="btn btn-primary" name="enviar" value="Enviar" onclick="mandarDatos()" >
+						<i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar
+					</button>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 30px" >
+				
+				<button id="pedirDatos" type="button" class="btn btn-info engrane" name="Ver todos" value="Ver todos" onclick="pedirDatos()" >
+					<i class="fa fa-cog" aria-hidden="true"></i> Ver todos
+				</button>
+
+				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Modal">
+					<i class="fa fa-trash" aria-hidden="true"></i> Borrar todo
+				</button>
+
+			</div>
+			<h2 class="text-center">Usuarios añadidos:</h2>
+			<div class="row tituloCol">				
+				<div class="col-3">ID</div>
+
+				<div class="col-3">Cédula</div>
+
+				<div class="col-3" >Nombre</div>
+					
+				<div class="col-3">Apellidos</div>
+			</div>
+			<div class="row" id="formImpri">	
+				
+			</div>
+		</section>
+
+	<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+						<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+						Borrar todos los usuarios
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					
+					</button>
+				</div>
+				<div class="modal-body">
+				¡Atención! La acción que va a ejecutar borrará toda la base de datos. <br />¿Seguro que quiere continuar?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="borrarTodo()"><i class="fa fa-trash" aria-hidden="true"></i>Si</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</body>
+
+
+</html>
